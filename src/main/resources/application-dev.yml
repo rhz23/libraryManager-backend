@@ -1,0 +1,29 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gestor_db
+    username: postgresql
+    password: postgresql
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  activemq:
+    broker-url: tcp://localhost:6161
+    user: admin
+    password: admin
+
+google:
+  books:
+    api:
+      key: ${GOOGLE_BOOKS_KEY}
+      url:
+
+logging:
+  level:
+    br.com.rzaninelli.gestor: DEBUG

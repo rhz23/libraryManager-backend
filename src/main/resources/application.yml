@@ -1,0 +1,13 @@
+spring:
+  profiles:
+#    active: ${SPRING_PROFILE}
+    active: dev
+  threads:
+    virtual:
+      enabled: true
+  task:
+    execution:
+      virtual:
+        enabled: true
+  application:
+    name: gestor
