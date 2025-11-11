@@ -21,8 +21,8 @@ CREATE TABLE emprestimos (
     id BIGSERIAL PRIMARY KEY,
     usuario_id BIGINT NOT NULL,
     livro_id BIGINT NOT NULL,
-    data_emprestimo TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    data_devolucao TIMESTAMPTZ,
+    data_emprestimo TIMESTAMP NOT NULL DEFAULT NOW(),
+    data_devolucao TIMESTAMP,
     status VARCHAR(20) NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
     FOREIGN KEY (livro_id) REFERENCES livros(id)

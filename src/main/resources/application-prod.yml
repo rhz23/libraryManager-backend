@@ -24,7 +24,7 @@ spring:
 google:
   books:
     api:
-      key: ${GOOGLE_BOOKS_API_KEY}
+
       url:
 
 logging:

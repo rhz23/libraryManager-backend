@@ -1,0 +1,1 @@
+ALTER TABLE livros ADD COLUMN google_books_id VARCHAR(50);

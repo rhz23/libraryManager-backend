@@ -4,8 +4,8 @@ spring:
       on-profile: dev
   datasource:
     url: jdbc:postgresql://localhost:5432/gestor_db
-    username: postgresql
-    password: postgresql
+    username: postgres
+    password: postgres
   jpa:
     hibernate:
       ddl-auto: none
@@ -21,7 +21,7 @@ spring:
 google:
   books:
     api:
-      key: ${GOOGLE_BOOKS_KEY}
+
       url:
 
 logging:

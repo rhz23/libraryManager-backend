@@ -1,5 +1,6 @@
 package br.com.rzaninelli.gestor.model.entity;
 
+import br.com.rzaninelli.gestor.enums.StatusEmprestimo;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -7,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity

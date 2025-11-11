@@ -11,3 +11,16 @@ spring:
         enabled: true
   application:
     name: gestor
+  data:
+    web:
+      pageable:
+        default-page-size: 20
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api/docs
+  swagger-ui:
+    path: api/swagger
+    operations-sorter: method
+    tags-sorter: alpha
+    display-request-duration: true
