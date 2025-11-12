@@ -7,11 +7,9 @@ Sistema completo de gestão de biblioteca com recomendações de livros, integra
 - **Java 21** com Virtual Threads
 - **Spring Boot 3.5**
 - **PostgreSQL 16**
-- **RabbitMQ 3.13**
 - **Flyway** para migrations
 - **MapStruct** para mapeamento de objetos
 - **Docker & Docker Compose**
-- **Thymeleaf** para templates de email
 - **Google Books API**
 
 ---
@@ -21,7 +19,6 @@ Sistema completo de gestão de biblioteca com recomendações de livros, integra
 - **Git**
 - **Docker** e **Docker Compose**
 - **Conta Google Cloud** (para API Key do Google Books)
-- **Conta Gmail** (para envio de emails)
 
 ---
 
@@ -40,15 +37,6 @@ Sistema completo de gestão de biblioteca com recomendações de livros, integra
    - Clique em **Create Credentials** → **API Key**
    - Copie a chave gerada
 
-### 2️⃣ Configurar Senha de App do Gmail
-
-1. Acesse [Conta Google](https://myaccount.google.com/)
-2. Vá em **Segurança** → **Verificação em duas etapas** (ative se necessário)
-3. Role até **Senhas de app**
-4. Selecione **App**: Email, **Dispositivo**: Outro (personalizado)
-5. Digite "Sistema Biblioteca" e clique em **Gerar**
-6. Copie a senha gerada (16 caracteres sem espaços)
-
 ---
 
 ## 📥 Instalação
@@ -56,7 +44,7 @@ Sistema completo de gestão de biblioteca com recomendações de livros, integra
 ### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/biblioteca-api.git
+git clone https://github.com/rhz23/libraryManager-backend.git
 cd biblioteca-api
 ```
 
@@ -77,6 +65,13 @@ Execute o Docker Compose:
 docker-compose up -d
 ```
 
+Se for utilizar backend na IDE (Intellij)
+
+```
+docker-compose up -d postgres
+```
+* não é necessário rodar subir o rabbitMQ pois não foi implementado o envio de mensagens async
+
 #### Opção B: Passando variáveis diretamente no comando
 
 ```bash
@@ -89,8 +84,6 @@ docker-compose run \
 
 ```cmd
 set GOOGLE_BOOKS_API_KEY=AIzaSyDxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-set EMAIL_USERNAME=seu-email@gmail.com
-set EMAIL_PASSWORD=abcd efgh ijkl mnop
 
 docker-compose up -d
 ```
@@ -104,7 +97,7 @@ docker-compose ps
 Você deve ver 3 containers rodando:
 - `biblioteca-backend` (porta 8080)
 - `biblioteca-postgres` (porta 5432)
-- `biblioteca-rabbitmq` (portas 5672, 15672)
+- `biblioteca-rabbitmq` (portas 5672, 15672) *não é necessário
 
 ### 4. Acompanhar Logs
 
@@ -129,7 +122,6 @@ Após iniciar os containers, acesse:
 |---------|-----|-------------|
 | **API Backend** | http://localhost:8080 | - |
 | **Swagger UI** | http://localhost:8080/swagger-ui.html | - |
-| **Actuator Health** | http://localhost:8080/actuator/health | - |
 | **PostgreSQL** | localhost:5432 | postgres/postgres |
 
 ---
