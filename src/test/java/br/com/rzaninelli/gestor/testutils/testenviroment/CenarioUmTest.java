@@ -31,6 +31,11 @@ public class CenarioUmTest implements BeforeEachCallback, AfterEachCallback {
         livroRepository.deleteAll();
         usuarioRepository.deleteAll();
 
+        // força sincronização
+        usuarioRepository.flush();
+        livroRepository.flush();
+        emprestimoRepository.flush();
+
         // Cria um usuário
         Usuario usuario = new Usuario();
         usuario.setNome("João da Silva");

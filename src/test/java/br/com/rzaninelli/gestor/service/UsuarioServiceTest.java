@@ -141,8 +141,11 @@ public class UsuarioServiceTest {
         // Assert
         assertThat(resultPage.getTotalElements()).isEqualTo(6);
         assertThat(resultPage.getContent().get(0).nome()).isEqualTo("Ana AAA");
-        assertThat(resultPage.getContent().get(1).nome()).isEqualTo("Maria ZZZ"); // Corrigido
-        assertThat(resultPage.getContent().get(2).nome()).isEqualTo("Usuario Pre Existente"); // Corrigido
+        assertThat(resultPage.getContent().get(1).nome()).isEqualTo("João Teste Ativo");
+        assertThat(resultPage.getContent().get(2).nome()).isEqualTo("Maria Teste Ativa");
+        assertThat(resultPage.getContent().get(3).nome()).isEqualTo("Maria ZZZ");
+        assertThat(resultPage.getContent().get(4).nome()).isEqualTo("Pedro Teste Inativo");
+        assertThat(resultPage.getContent().get(5).nome()).isEqualTo("Usuario Pre Existente");
     }
 
     // --- Testes para ATUALIZAR ---
