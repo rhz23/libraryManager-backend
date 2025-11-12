@@ -92,7 +92,7 @@ public class GoogleBooksClient {
      * Busca livros por autor
      */
     public GoogleBooksSearchResponse buscarPorAutor(String autor, Integer maxResults) {
-        String query = "inauthor:" + autor;
+        String query = "inauthor:" + autor.replace(" ", "+");
         return buscarLivros(query, maxResults);
     }
 
@@ -100,7 +100,7 @@ public class GoogleBooksClient {
      * Busca livros por título
      */
     public GoogleBooksSearchResponse buscarPorTitulo(String titulo, Integer maxResults) {
-        String query = "intitle:\"" + titulo + "\"";
+        String query = "intitle:" + titulo.replace(" ", "+");
         return buscarLivros(query, maxResults);
     }
 
@@ -134,7 +134,7 @@ public class GoogleBooksClient {
                 .queryParam("key", apiKey)
                 .queryParam("maxResults", maxResults != null ? maxResults : 10)
                 .queryParam("startIndex", startIndex != null ? startIndex : 0)
-                .encode()
+                .queryParam("langRestrict", "pt")
                 .toUriString();
     }
 }
