@@ -52,6 +52,9 @@ public class Livro {
     @Column(nullable = false)
     private Boolean disponivel = true;
 
+    @Column(name = "google_books_id", length = 50)
+    private String googleBooksId;
+
     @OneToMany(mappedBy = "livro", cascade = CascadeType.ALL)
     private List<Emprestimo> emprestimos = new ArrayList<>();
 }

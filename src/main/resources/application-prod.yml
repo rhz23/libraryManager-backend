@@ -16,16 +16,12 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  activemq:
-    broker-url: ${ACTIVEMQ_URL}
-    user: ${ACTIVEMQ_USERNAME}
-    password: ${ACTIVEMQ_PASSWORD}
 
 google:
   books:
     api:
-
-      url:
+      key: ${GOOGLE_BOOKS_API_KEY}
+      url: https://www.googleapis.com/books/v1
 
 logging:
   level:

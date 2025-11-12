@@ -1,28 +1,56 @@
 package br.com.rzaninelli.gestor.model.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record GoogleBooksItemDTO(String id, String kind, VolumeInfo volumeInfo) {
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public record VolumeInfo(
-            String title,
-            List<String> authors,
-            String publisher,
-            String publishedDate,
-            String description,
-            List<IndustryIdentifier> industryIdentifiers,
-            Integer pageCount,
-            List<String> categories,
-            ImageLinks imageLinks,
-            String language
-    ) {
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        public record IndustryIdentifier(String type, String identifier) {}
+public class GoogleBooksItemDTO {
 
+    private String id;
+    private String kind;
+    private VolumeInfo volumeInfo;
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class VolumeInfo {
+
+        private String title;
+        private List<String> authors;
+        private String publisher;
+        private String publishedDate;
+        private String description;
+        private List<IndustryIdentifier> industryIdentifiers;
+        private Integer pageCount;
+        private List<String> categories;
+        private ImageLinks imageLinks;
+        private String language;
+
+        @Data
+        @NoArgsConstructor
+        @AllArgsConstructor
         @JsonIgnoreProperties(ignoreUnknown = true)
-        public record ImageLinks(String smallThumbnail, String thumbnail) {}
+        public static class IndustryIdentifier {
+            private String type; // ISBN_10, ISBN_13
+            private String identifier;
+        }
+
+        @Data
+        @NoArgsConstructor
+        @AllArgsConstructor
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        public static class ImageLinks {
+            private String smallThumbnail;
+            private String thumbnail;
+        }
     }
 }
 

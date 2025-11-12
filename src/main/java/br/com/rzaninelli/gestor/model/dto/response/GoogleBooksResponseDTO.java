@@ -1,7 +1,26 @@
 package br.com.rzaninelli.gestor.model.dto.response;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 
-public record GoogleBooksResponseDTO(String id, String titulo, String autor, String isbn, LocalDate dataPublicacao,
-        String categoria, String descricao, String imagemUrl, Integer numeroPaginas, String idioma) {}
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class GoogleBooksResponseDTO {
 
+    private String id;
+    private String titulo;
+    private String autor;
+    private String isbn;
+    private LocalDate dataPublicacao;
+    private String categoria;
+    private String descricao;
+    private String imagemUrl;
+    private Integer numeroPaginas;
+    private String idioma;
+}
